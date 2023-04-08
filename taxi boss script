@@ -1,0 +1,44 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Swavy's Hub", "Synapse")
+
+--MAIN
+local Main = Window:NewTab("Taxi Boss")
+local MainSection = Main:NewSection("Auto Spinner")
+
+
+MainSection:NewButton("Spin", "Spins for you, lazy ass", function()
+    _G.spin = true
+    while _G.spin do
+    for i=1,1000 do
+       task.spawn(function()
+    game:GetService("ReplicatedStorage").SpinWheel:InvokeServer()
+    end)
+    end
+    wait(2)
+    end
+end)
+
+
+local MainSection = Main:NewSection("Egg Grabber")
+
+
+Section:NewButton("Egg Grabber", "bro it grabs eggs for you retard", function()
+    _G.eggs = true
+    while _G.eggs do
+        wait()
+        pcall(function()
+    for i,v in pairs(game:GetService("Workspace").Easter.EggHunt:GetDescendants()) do
+        if v.Name == "EggPrompt"  then
+    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = v.Parent.CFrame
+    wait(5)
+            fireproximityprompt(v)
+            wait(0.1)
+        end
+    end
+    end)
+    end
+end)
+
+Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.g, function()
+	Library:ToggleUI()
+end)
