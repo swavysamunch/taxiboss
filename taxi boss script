@@ -22,7 +22,7 @@ end)
 local MainSection = Main:NewSection("Egg Grabber")
 
 
-Section:NewButton("Egg Grabber", "bro it grabs eggs for you retard", function()
+MainSection:NewButton("Egg Grabber", "bro it grabs eggs for you retard", function()
     _G.eggs = true
     while _G.eggs do
         wait()
@@ -39,6 +39,3 @@ Section:NewButton("Egg Grabber", "bro it grabs eggs for you retard", function()
     end
 end)
 
-Section:NewKeybind("KeybindText", "KeybindInfo", Enum.KeyCode.g, function()
-	Library:ToggleUI()
-end)
